@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from '../Shared/Header/Header';
 import { Outlet } from 'react-router-dom';
 import Footer from '../Shared/Footer/Footer';
+import NavigationBar from '../Shared/Header/NavigationBar';
 
 const Main = () => {
   return (
     <>
-      <Header></Header>
+      <NavigationBar></NavigationBar>
       <Outlet></Outlet>
       <Footer></Footer>
     </>
