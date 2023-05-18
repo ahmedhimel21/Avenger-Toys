@@ -159,26 +159,30 @@ const NavigationBar = () => {
                 All toys
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/myToys"
-                className={({ isActive }) =>
-                  isActive ? "text-md font-bold" : "text-md font-semibold"
-                }
-              >
-                My toys
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/addAToy"
-                className={({ isActive }) =>
-                  isActive ? "text-md font-bold" : "text-md font-semibold"
-                }
-              >
-                Add a toy
-              </NavLink>
-            </li>
+            {user && (
+              <li>
+                <NavLink
+                  to="/myToys"
+                  className={({ isActive }) =>
+                    isActive ? "text-md font-bold" : "text-md font-semibold"
+                  }
+                >
+                  My toys
+                </NavLink>
+              </li>
+            )}
+            {user && (
+              <li>
+                <NavLink
+                  to="/addAToy"
+                  className={({ isActive }) =>
+                    isActive ? "text-md font-bold" : "text-md font-semibold"
+                  }
+                >
+                  Add a toy
+                </NavLink>
+              </li>
+            )}
             <li>
               <NavLink
                 to="/blogs"
