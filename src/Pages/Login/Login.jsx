@@ -112,12 +112,22 @@ const Login = () => {
               <input
                 className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
-                type="password"
+                type={show ? "text" : "password"}
                 placeholder="Enter your password"
                 name="password"
                 required
               />
             </div>
+            <p
+              className=" mb-3 font-semibold text-md"
+              onClick={() => setShow(!show)}
+            >
+              {show ? (
+                <span className="cursor-pointer	">Hide password!</span>
+              ) : (
+                <span className="cursor-pointer	">Show password!</span>
+              )}
+            </p>
             <p className="text-red-600">{error}</p>
             <div className="flex items-center justify-between mb-6">
               <button
