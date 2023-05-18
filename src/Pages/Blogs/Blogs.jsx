@@ -107,7 +107,7 @@ const Blogs = () => {
             </button>
           </div>
         </div>
-        {/* q2 */}
+        {/* q4 */}
         <div className="bg-white shadow rounded p-4 flex flex-col">
           <h2 className="text-xl font-bold mb-2">
             What is MongoDB aggregate and how does it work?

@@ -1,12 +1,13 @@
 import React from 'react';
 import useTitle from "../../hooks/useTitle";
+import Banner from './Banner';
 
 const Home = () => {
   useTitle('Home')
   return (
-    <div>
-      Home page
-    </div>
+    <>
+      <Banner></Banner>
+    </>
   );
 };
 
