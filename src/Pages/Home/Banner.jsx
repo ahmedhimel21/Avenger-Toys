@@ -3,7 +3,7 @@ import background from "../../assets/bg.jpg";
 
 const Banner = () => {
   return (
-    <div className="relative mx-12 my-6">
+    <div className="relative mx-6 my-4">
       <div>
         <img
           src={background}
