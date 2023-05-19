@@ -13,7 +13,6 @@ import AddAToyLayout from "../Layouts/AddAToyLayout";
 import AddAToy from "../Pages/AddAToy/AddAToy";
 import BlogsLayout from "../Layouts/BlogsLayout";
 import Blogs from "../Pages/Blogs/Blogs";
-import ViewDetailsLayout from "../Layouts/ViewDetailsLayout";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import PrivateRoutes from "./PrivateRoutes";
 
@@ -34,14 +33,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: '/viewDetails',
-  //   element: <ViewDetailsLayout></ViewDetailsLayout>,
-  //   children: [{
-  //     path: ':id',
-  //     element: <ViewDetails></ViewDetails>
-  //   }]
-  // },
   {
     path: "/allToys",
     element: <AllToysLayout></AllToysLayout>,
@@ -49,6 +40,7 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys></AllToys>,
+        loader: () => fetch('http://localhost:5000/allToys')
       },
     ],
   },
