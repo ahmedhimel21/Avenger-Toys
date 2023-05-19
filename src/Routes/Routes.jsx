@@ -15,6 +15,7 @@ import BlogsLayout from "../Layouts/BlogsLayout";
 import Blogs from "../Pages/Blogs/Blogs";
 import ViewDetailsLayout from "../Layouts/ViewDetailsLayout";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id",
-        element: <ViewDetails></ViewDetails>,
+        element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
         loader: ({params}) =>
           fetch(`http://localhost:5000/viewDetails/${params.id}`),
       },
