@@ -18,73 +18,93 @@ import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Main></Main>,
-    children: [{
-      path: '/',
-      element: <Home></Home>
-    }]
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/viewDetails/:id",
+        element: <ViewDetails></ViewDetails>,
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/viewDetails/${params.id}`),
+      },
+    ],
   },
+  // {
+  //   path: '/viewDetails',
+  //   element: <ViewDetailsLayout></ViewDetailsLayout>,
+  //   children: [{
+  //     path: ':id',
+  //     element: <ViewDetails></ViewDetails>
+  //   }]
+  // },
   {
-    path: '/viewDetails',
-    element: <ViewDetailsLayout></ViewDetailsLayout>,
-    children: [{
-      path: ':id',
-      element: <ViewDetails></ViewDetails>
-    }]
-  },
-  {
-    path: '/allToys',
+    path: "/allToys",
     element: <AllToysLayout></AllToysLayout>,
-    children: [{
-      path: '/allToys',
-      element: <AllToys></AllToys>
-    }]
+    children: [
+      {
+        path: "/allToys",
+        element: <AllToys></AllToys>,
+      },
+    ],
   },
   {
-    path: '/myToys',
+    path: "/myToys",
     element: <MyToysLayout></MyToysLayout>,
-    children: [{
-      path: '/myToys',
-      element: <MyToys></MyToys>
-    }]
+    children: [
+      {
+        path: "/myToys",
+        element: <MyToys></MyToys>,
+      },
+    ],
   },
   {
-    path: '/addAToy',
+    path: "/addAToy",
     element: <AddAToyLayout></AddAToyLayout>,
-    children: [{
-      path: '/addAToy',
-      element: <AddAToy></AddAToy>
-    }]
+    children: [
+      {
+        path: "/addAToy",
+        element: <AddAToy></AddAToy>,
+      },
+    ],
   },
   {
-    path: '/blogs',
+    path: "/blogs",
     element: <BlogsLayout></BlogsLayout>,
-    children: [{
-      path: '/blogs',
-      element: <Blogs></Blogs>
-    }]
+    children: [
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+      },
+    ],
   },
   {
-    path: '/login',
+    path: "/login",
     element: <LoginLayout></LoginLayout>,
-    children: [{
-      path: '/login',
-      element: <Login></Login>
-    }]
+    children: [
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+    ],
   },
   {
-    path: '/register',
+    path: "/register",
     element: <LoginLayout></LoginLayout>,
-    children: [{
-      path: '/register',
-      element: <Register></Register>
-    }]
+    children: [
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+    ],
   },
   {
-    path: '*',
-    element: <ErrorPage></ErrorPage>
-  }
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);
 
-export default router
+export default router;
