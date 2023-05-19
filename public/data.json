@@ -6,7 +6,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "7",
-    "rating": "4.5",
+    "rating": 4.5,
     "availableQuantity": "8796",
     "details": "Spider-Man Marvel Titan Hero Series 12-Scale Super Hero Action Figure Toy with Titan Hero Fx Port,Red Blue"
   },
@@ -17,7 +17,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "14",
-    "rating": "4.4",
+    "rating": 4.4,
     "availableQuantity": "4,999",
     "details": "Marvel Avengers Series Marvel Assemble Titan Hero Iron Man 12 Action Figure"
   },
@@ -28,7 +28,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "10",
-    "rating": "4.3",
+    "rating": 4.3,
     "availableQuantity": "5,583",
     "details": "Marvel Avengers Titan Hero Series Thor 12-Inch Figure"
   },
@@ -39,7 +39,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "291",
-    "rating": "5.0",
+    "rating": 5.0,
     "availableQuantity": "48",
     "details": "Hot Toys 1:6 Nebula - Avengers: Endgame, HT904611"
   },
@@ -50,7 +50,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "19",
-    "rating": "5.0",
+    "rating": 5.0,
     "availableQuantity": "5,559",
     "details": "12-INCH SCALE HULK FIGURE Imagine Bruce Banner transforming into the massive green hero Hulk with this 12-inch-scale Hulk figure, inspired by the classic character design from the Marvel comics."
   },
@@ -61,7 +61,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "366",
-    "rating": "5.0",
+    "rating": 5.0,
     "availableQuantity": "17",
     "details": "Hot Toys Marvel Comics Avengers Endgame Thanos (Battle Damaged Version) 1/6 Scale Collectible Figure"
   },
@@ -72,7 +72,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "16",
-    "rating": "4.2",
+    "rating": 4.2,
     "availableQuantity": "293",
     "details": "STAR WARS The Vintage Collection Yoda (Dagobah) Toy, 3.75-Inch-Scale The Empire Strikes Back Action Figure"
   },
@@ -83,7 +83,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "25",
-    "rating": "4.1",
+    "rating": 4.1,
     "availableQuantity": "666",
     "details": "STAR WARS The Vintage Collection Boba Fett (Tatooine) Deluxe Action Figure, 3.75-Inch-Scale The Book of Boba Fett Toy for Kids"
   },
@@ -94,7 +94,7 @@
     "sellerName": "Avenger Toys",
     "sellerEmail": "info@gmail.com",
     "price": "47",
-    "rating": "4.3",
+    "rating": 4.3,
     "availableQuantity": "255",
     "details": "STAR WARS The Black Series Cad Bane (Bracca) Toy 6-Inch-Scale The Bad Batch Collectible Action Figure"
   }

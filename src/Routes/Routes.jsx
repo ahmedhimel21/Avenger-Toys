@@ -13,6 +13,8 @@ import AddAToyLayout from "../Layouts/AddAToyLayout";
 import AddAToy from "../Pages/AddAToy/AddAToy";
 import BlogsLayout from "../Layouts/BlogsLayout";
 import Blogs from "../Pages/Blogs/Blogs";
+import ViewDetailsLayout from "../Layouts/ViewDetailsLayout";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
     children: [{
       path: '/',
       element: <Home></Home>
+    }]
+  },
+  {
+    path: '/viewDetails',
+    element: <ViewDetailsLayout></ViewDetailsLayout>,
+    children: [{
+      path: ':id',
+      element: <ViewDetails></ViewDetails>
     }]
   },
   {
