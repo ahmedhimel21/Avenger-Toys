@@ -4,6 +4,7 @@ import Banner from './Banner';
 import Gallery from './Gallery';
 import ShopByCategory from './ShopByCategory';
 import NewArrivalsSection from './NewArrivalsSection';
+import CustomerSection from './CustomerSection';
 
 const Home = () => {
   useTitle('Home')
@@ -13,6 +14,7 @@ const Home = () => {
       <Gallery></Gallery>
       <ShopByCategory></ShopByCategory>
       <NewArrivalsSection></NewArrivalsSection>
+      <CustomerSection></CustomerSection>
     </>
   );
 };

@@ -28,7 +28,6 @@ const NewArrivalsSection = () => {
       name: "Robin",
       image: "robinNew.webp",
     },
-    // Add more toy objects as needed
   ];
 
   return (

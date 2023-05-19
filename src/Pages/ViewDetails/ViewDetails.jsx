@@ -43,7 +43,7 @@ const ViewDetails = () => {
           </div>
           <div class="flex items-center mt-2.5 mb-5">
             <p className="text-gray-600 mb-4 text-md font-semibold">
-              <span className="text-xl font-bold">Seller Name:</span> $
+              <span className="text-xl font-bold">Seller Name: </span> 
               {sellerName}
             </p>
             <p className="text-gray-600 mb-4 text-md font-semibold ml-5">
