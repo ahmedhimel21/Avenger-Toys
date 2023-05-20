@@ -56,7 +56,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/myToys",
-        element: <MyToys></MyToys>,
+        element: <PrivateRoutes><MyToys></MyToys></PrivateRoutes>,
       },
     ],
   },

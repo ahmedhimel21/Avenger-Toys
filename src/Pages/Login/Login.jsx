@@ -69,7 +69,7 @@ const Login = () => {
   return (
     <div className="mx-8 my-8">
       <div className="flex flex-col md:flex-row">
-        {/* Left side with company name and text */}
+        {/* Left side */}
         <div
           className="bg-blue-500 text-white p-10 flex flex-col justify-center items-center md:w-1/2 rounded-lg"
           // style={{ backgroundImage: 'url("login1.jpg")' }}
@@ -81,7 +81,7 @@ const Login = () => {
           ></Lottie>
         </div>
 
-        {/* Right side with login form */}
+        {/* Right side */}
         <div className="bg-gray-200 p-10 flex justify-center items-center md:w-1/2 rounded-lg">
           <form onSubmit={handleSignIn} className="w-full max-w-sm">
             <h2 className="text-3xl font-bold mb-6">Login</h2>
@@ -139,7 +139,6 @@ const Login = () => {
               <a
                 onClick={handleResetPassword}
                 className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                href="#"
               >
                 Forgot Password?
               </a>

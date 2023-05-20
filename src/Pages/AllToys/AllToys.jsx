@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const toysData = useLoaderData();
@@ -12,10 +13,13 @@ const AllToys = () => {
   const filteredToys = toysData.filter((toy) => {
     return toy.toyName.toLowerCase().includes(searchQuery.toLowerCase());
   });
+  useTitle("AllToys");
   return (
     <div className="mx-8 my-6 rounded-lg">
       <div className="container py-8">
-        <h1 className="text-2xl font-bold mb-4 text-center">All Toys</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center text-blue-500">
+          All Toys
+        </h1>
         <div className="mb-4 text-center">
           <input
             type="text"

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProviders";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
   const [userAddedToys, setUserAddedToys] = useState([]);
@@ -26,11 +27,11 @@ const MyToys = () => {
         });
     }
   };
-
+  useTitle('MyToys')
   return (
     <div className="my-6">
       <div className="container px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">My Toys</h1>
+        <h1 className="text-3xl font-bold mb-4 text-blue-500">My Toys</h1>
         {userAddedToys.length === 0 ? (
           <p>No toys added yet.</p>
         ) : (

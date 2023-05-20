@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProviders";
+import logo from '../../assets/avenger.png';
 
 const NavigationBar = () => {
-  // const { user, logOut } = useContext(AuthContext);
   const { user, logOut } = useContext(AuthContext);
   const handleSignOut = () => {
     logOut()
@@ -20,7 +20,7 @@ const NavigationBar = () => {
         <Link to="/">
           <a className="flex items-center">
             <img
-              src="avenger.png"
+              src={logo}
               className="h-12 mr-3 rounded-full"
               alt="avenger logo"
             />

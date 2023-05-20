@@ -79,7 +79,7 @@ const Register = () => {
   return (
     <div className="mx-8 my-3">
       <div className="flex flex-col md:flex-row rounded-lg">
-        {/* Left side with register form */}
+        {/* Left side*/}
         <div className="bg-gray-200 p-10 flex justify-center items-center md:w-1/2 rounded-lg">
           <form onSubmit={handleCreateUser} className="w-full max-w-sm">
             <h2 className="text-3xl font-bold mb-6">Register</h2>
@@ -182,7 +182,7 @@ const Register = () => {
             <div className="mt-6 text-center">
               <p className="text-gray-700 mb-2">Or register with:</p>
               <div className="flex items-center justify-center">
-                {/* Social media login buttons/icons */}
+                {/* Social media login buttons */}
                 <button
                   onClick={handleGoogleSignIn}
                   className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center mb-3"
@@ -206,10 +206,9 @@ const Register = () => {
           </form>
         </div>
 
-        {/* Right side with background image */}
+        {/* Right side */}
         <div
           className="bg-cover bg-center md:w-1/2"
-          // style={{ backgroundImage: 'url("register.webp")' }}
         >
           <Lottie
             animationData={rocket}

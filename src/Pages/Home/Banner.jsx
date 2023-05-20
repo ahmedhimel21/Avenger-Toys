@@ -22,7 +22,7 @@ const Banner = () => {
         </p>
         <div className="text-center">
         <button className="bg-blue-500 text-white px-6 py-3 rounded-full font-bold hover:bg-blue-600">
-          Get Started
+          Get yor Toy
         </button>
         </div>
       </div>

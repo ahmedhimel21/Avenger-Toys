@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProviders";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../hooks/useTitle";
 
 const AddAToy = () => {
   const [subCategory, setSubCategory] = useState("");
@@ -45,11 +46,11 @@ const AddAToy = () => {
       }
     })
   };
-
+  useTitle('AddAToy')
   return (
    <div className="mx-8">
-     <div className="container px-4 py-8">
-      <h1 className="text-3xl font-bold mb-4">Add A Toy</h1>
+     <div className="container py-8">
+      <h1 className="text-3xl font-bold mb-4 text-blue-500">Add A Toy</h1>
       <form onSubmit={handleFormSubmit}>
         <div className="mb-4">
           <label

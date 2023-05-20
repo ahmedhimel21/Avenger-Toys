@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import useTitle from "../../hooks/useTitle";
-import Banner from './Banner';
-import Gallery from './Gallery';
-import ShopByCategory from './ShopByCategory';
-import NewArrivalsSection from './NewArrivalsSection';
-import CustomerSection from './CustomerSection';
+import Banner from "./Banner";
+import Gallery from "./Gallery";
+import ShopByCategory from "./ShopByCategory";
+import NewArrivalsSection from "./NewArrivalsSection";
+import CustomerSection from "./CustomerSection";
 
 const Home = () => {
-  useTitle('Home')
+  useTitle("Home");
   return (
     <>
       <Banner></Banner>

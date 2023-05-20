@@ -12,18 +12,13 @@ const PrivateRoutes = ({ children }) => {
     toast.error('You have to log in first to view details')
     
   }
-  else if (loading) {
+  if (loading) {
     return (
-      <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-        <div
-          class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
-          style="width: 45%"
-        >
-          {" "}
-          45%
-        </div>
-        <ToastContainer />
-      </div>
+      <progress
+      className="progress progress-secondary w-56"
+      value="100"
+      max="100"
+    ></progress>
     );
   }
   if (user) {

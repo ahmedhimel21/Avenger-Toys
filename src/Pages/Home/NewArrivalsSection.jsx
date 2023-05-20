@@ -1,7 +1,6 @@
 import React from "react";
 
 const NewArrivalsSection = () => {
-  // Assuming you have an array of new arrival toys
   const newToys = [
     {
       id: 1,
@@ -32,7 +31,7 @@ const NewArrivalsSection = () => {
 
   return (
     <section className="py-8 mx-8">
-      <h2 className="text-2xl font-bold mb-4">New Arrivals</h2>
+      <h2 className="text-2xl font-bold mb-4 text-blue-500">New Arrivals</h2>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         {newToys.map((toy) => (
           <div key={toy.id} className="border rounded shadow-md p-4">
