@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const NewArrivalsSection = () => {
   const newToys = [
@@ -29,12 +31,21 @@ const NewArrivalsSection = () => {
     },
   ];
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section className="py-8 mx-8">
       <h2 className="text-2xl font-bold mb-4 text-blue-500">New Arrivals</h2>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
         {newToys.map((toy) => (
-          <div key={toy.id} className="border rounded shadow-md p-4">
+          <div
+            key={toy.id}
+            className="border rounded shadow-md p-4"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
             <img
               src={toy.image}
               alt={toy.name}

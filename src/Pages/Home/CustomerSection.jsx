@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const CustomerSection = () => {
   const testimonials = [
@@ -39,6 +41,10 @@ const CustomerSection = () => {
     },
   ];
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <section className="py-8 bg-gray-100">
       <div className="max-w-4xl mx-auto px-4">
@@ -47,7 +53,12 @@ const CustomerSection = () => {
         </h2>
         <div className="grid grid-cols-1 gap-8">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white shadow-md p-4">
+            <div
+              key={testimonial.id}
+              className="bg-white shadow-md p-4"
+              data-aos="fade-right"
+              data-aos-delay="300"
+            >
               <p className="text-lg mb-2">{testimonial.quote}</p>
               <p className="text-sm font-semibold">{testimonial.name}</p>
             </div>
