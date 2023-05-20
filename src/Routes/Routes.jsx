@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/addAToy",
-        element: <AddAToy></AddAToy>,
+        element: <PrivateRoutes><AddAToy></AddAToy></PrivateRoutes>,
       },
     ],
   },
