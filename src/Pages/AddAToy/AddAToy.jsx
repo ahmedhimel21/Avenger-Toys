@@ -1,19 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProviders";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddAToy = () => {
-  // const [pictureUrl, setPictureUrl] = useState("");
-  // const [toyName, setToyName] = useState("");
-  // const [sellerName, setSellerName] = useState("");
-  // const [sellerEmail, setSellerEmail] = useState("");
   const [subCategory, setSubCategory] = useState("");
-  // const [price, setPrice] = useState("");
-  // const [rating, setRating] = useState("");
-  // const [availableQuantity, setAvailableQuantity] = useState("");
-  // const [description, setDescription] = useState("");
 
-  const {user} = useContext(AuthContext)
-  console.log(user)
+  const {user} = useContext(AuthContext);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -38,6 +31,19 @@ const AddAToy = () => {
       details,
     };
     console.log("Form submitted!", formData);
+    fetch('http://localhost:5000/addAToy',{
+      method: 'POST',
+      headers: {'content-type': 'application/json'},
+      body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(result =>{
+      console.log(result)
+      if(result.insertedId){
+        toast.success('Toys added successfully')
+        form.reset()
+      }
+    })
   };
 
   return (
@@ -55,8 +61,6 @@ const AddAToy = () => {
           <input
             type="text"
             id="pictureUrl"
-            // value={pictureUrl}
-            // onChange={(e) => setPictureUrl(e.target.value)}
             name="photoURL"
             className="border border-gray-400 p-2 w-full"
             required
@@ -71,8 +75,6 @@ const AddAToy = () => {
             type="text"
             id="toyName"
             name="toyName"
-            // value={toyName}
-            // onChange={(e) => setToyName(e.target.value)}
             className="border border-gray-400 p-2 w-full"
             required
           />
@@ -89,9 +91,7 @@ const AddAToy = () => {
             type="text"
             id="sellerName"
             name="sellerName"
-            // value={sellerName}
             defaultValue={user?.displayName}
-            // onChange={(e) => setSellerName(e.target.value)}
             className="border border-gray-400 p-2 w-full"
           />
         </div>
@@ -108,8 +108,6 @@ const AddAToy = () => {
             id="sellerEmail"
             name="sellerEmail"
             defaultValue={user?.email}
-            // value={sellerEmail}
-            // onChange={(e) => setSellerEmail(e.target.value)}
             className="border border-gray-400 p-2 w-full"
           />
         </div>
@@ -143,8 +141,6 @@ const AddAToy = () => {
             type="number"
             id="price"
             name="price"
-            // value={price}
-            // onChange={(e) => setPrice(e.target.value)}
             className="border border-gray-400 p-2 w-full"
             required
           />
@@ -161,8 +157,6 @@ const AddAToy = () => {
             type="number"
             id="rating"
             name="rating"
-            // value={rating}
-            // onChange={(e) => setRating(e.target.value)}
             className="border border-gray-400 p-2 w-full"
           />
         </div>
@@ -178,8 +172,6 @@ const AddAToy = () => {
             type="number"
             id="availableQuantity"
             name="availableQuantity"
-            // value={availableQuantity}
-            // onChange={(e) => setAvailableQuantity(e.target.value)}
             className="border border-gray-400 p-2 w-full"
           />
         </div>
@@ -194,8 +186,6 @@ const AddAToy = () => {
           <textarea
             id="description"
             name="description"
-            // value={description}
-            // onChange={(e) => setDescription(e.target.value)}
             className="border border-gray-400 p-2 w-full"
             rows={4}
             required
@@ -209,6 +199,7 @@ const AddAToy = () => {
           Add Toy
         </button>
       </form>
+      <ToastContainer />
     </div>
    </div>
   );
