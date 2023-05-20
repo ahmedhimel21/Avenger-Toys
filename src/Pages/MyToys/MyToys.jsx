@@ -20,14 +20,16 @@ const MyToys = () => {
     if (confirmDelete) {
       fetch(`http://localhost:5000/delete/${id}`, { method: "DELETE" })
         .then(() => {
-          setUserAddedToys((prevToys) => prevToys.filter((toy) => toy.id !== id));
+          setUserAddedToys((prevToys) =>
+            prevToys.filter((toy) => toy.id !== id)
+          );
         })
         .catch((error) => {
           console.error("Error deleting toy:", error);
         });
     }
   };
-  useTitle('MyToys')
+  useTitle("MyToys");
   return (
     <div className="my-6">
       <div className="container px-4 py-8">
@@ -43,16 +45,18 @@ const MyToys = () => {
                 <th className="border py-2 px-4">Seller Name</th>
                 <th className="border py-2 px-4">Seller Email</th>
                 <th className="border py-2 px-4">Sub-category</th>
-                <th className="border py-2 px-4">
-                  <select
-                    className="bg-white border border-gray-300 rounded px-2 py-1"
-                    // value={sortOrder}
-                    // onChange={handleSortChange}
-                  >
-                    <option value="price">Price</option>
-                    <option value="descending">Ascending Price</option>
-                    <option value="descending">Descending Price</option>
+                <th className="border py-2 px-4 flex">
+                  <select className="bg-white border border-gray-300 rounded px-2 py-1">
+                    <option value="">Price</option>
+                    <option value="ascending">
+                      Ascending Price
+                    </option>
+                    <option value="descending">
+                      Descending Price
+                    </option>
                   </select>
+                  {/* <button type="submit">Ascending Price</button>
+                  <button type="submit">Descending Price</button> */}
                 </th>
                 <th className="border py-2 px-4">Rating</th>
                 <th className="border py-2 px-4">Available Quantity</th>
@@ -74,7 +78,7 @@ const MyToys = () => {
                   <td className="border py-2 px-4">{toy.sellerName}</td>
                   <td className="border py-2 px-4">{toy.sellerEmail}</td>
                   <td className="border py-2 px-4">{toy.subCategory}</td>
-                  <td className="border py-2 px-4">{toy.price}</td>
+                  <td className="border py-2 px-4">${toy.price}</td>
                   <td className="border py-2 px-4">{toy.rating}</td>
                   <td className="border py-2 px-4">{toy.availableQuantity}</td>
                   <td className="border py-2 px-4">{toy.details}</td>

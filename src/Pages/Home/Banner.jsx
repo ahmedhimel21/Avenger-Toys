@@ -2,7 +2,6 @@ import React from "react";
 import background from "../../assets/bg.jpg";
 
 const Banner = () => {
-
   return (
     <div className="relative mx-6 my-4">
       <div>

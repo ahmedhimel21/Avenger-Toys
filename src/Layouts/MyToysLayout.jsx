@@ -7,7 +7,9 @@ const MyToysLayout = () => {
   return (
     <div>
       <NavigationBar></NavigationBar>
+      <div className='min-h-[100vh]'>
       <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );
