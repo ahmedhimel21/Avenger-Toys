@@ -15,6 +15,8 @@ import BlogsLayout from "../Layouts/BlogsLayout";
 import Blogs from "../Pages/Blogs/Blogs";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 import PrivateRoutes from "./PrivateRoutes";
+import Update from "../Pages/Update/Update";
+import UpdateLayout from "../Layouts/UpdateLayout";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +29,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/viewDetails/:id",
-        element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>,
-        loader: ({params}) =>
+        element: (
+          <PrivateRoutes>
+            <ViewDetails></ViewDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
           fetch(`http://localhost:5000/viewDetails/${params.id}`),
       },
     ],
@@ -40,7 +46,7 @@ const router = createBrowserRouter([
       {
         path: "/allToys",
         element: <AllToys></AllToys>,
-        loader: () => fetch('http://localhost:5000/allToys')
+        loader: () => fetch("http://localhost:5000/allToys"),
       },
     ],
   },
@@ -60,7 +66,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/addAToy",
-        element: <PrivateRoutes><AddAToy></AddAToy></PrivateRoutes>,
+        element: (
+          <PrivateRoutes>
+            <AddAToy></AddAToy>
+          </PrivateRoutes>
+        ),
       },
     ],
   },
@@ -71,6 +81,18 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+    ],
+  },
+  {
+    path: "/update/:id",
+    element: <UpdateLayout></UpdateLayout>,
+    children: [
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/viewDetails/${params.id}`),
       },
     ],
   },

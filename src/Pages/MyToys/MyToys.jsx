@@ -10,10 +10,21 @@ const MyToys = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setUserAddedToys(data));
-  }, []);
+  }, [userAddedToys]);
 
   const handleDeleteToy = (id) => {
-    setToys((prevToys) => prevToys.filter((toy) => toy.id !== id));
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this toy?"
+    );
+    if (confirmDelete) {
+      fetch(`http://localhost:5000/delete/${id}`, { method: "DELETE" })
+        .then(() => {
+          setUserAddedToys((prevToys) => prevToys.filter((toy) => toy.id !== id));
+        })
+        .catch((error) => {
+          console.error("Error deleting toy:", error);
+        });
+    }
   };
 
   return (
@@ -50,7 +61,7 @@ const MyToys = () => {
             </thead>
             <tbody>
               {userAddedToys.map((toy) => (
-                <tr key={toy.id}>
+                <tr key={toy._id}>
                   <td className="border py-2 px-4">
                     <img
                       src={toy.photoURL}
@@ -67,14 +78,14 @@ const MyToys = () => {
                   <td className="border py-2 px-4">{toy.availableQuantity}</td>
                   <td className="border py-2 px-4">{toy.details}</td>
                   <td className="border py-2 px-4 flex">
-                    <Link>
+                    <Link to={`/update/${toy?._id}`}>
                       <button className="bg-blue-500 text-white font-bold py-1 px-2 rounded mr-2">
                         Update
                       </button>
                     </Link>
                     <button
                       className="bg-red-500 text-white font-bold py-1 px-2 rounded"
-                      onClick={() => handleDeleteToy(toy.id)}
+                      onClick={() => handleDeleteToy(toy._id)}
                     >
                       Delete
                     </button>
