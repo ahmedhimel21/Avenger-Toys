@@ -16,7 +16,8 @@ const AddAToy = () => {
     const toyName = form.toyName.value;
     const sellerName = form.sellerName.value;
     const sellerEmail = form.sellerEmail.value;
-    const price = form.price.value;
+    const priceInt = form.price.value;
+    const price = parseInt(priceInt);
     const rating = form.rating.value;
     const availableQuantity = form.availableQuantity.value;
     const details = form.description.value;
@@ -48,7 +49,7 @@ const AddAToy = () => {
   };
   useTitle('AddAToy')
   return (
-   <div className="mx-8">
+   <div className="mx-12 my-4">
      <div className="container py-8">
       <h1 className="text-3xl font-bold mb-4 text-blue-500">Add A Toy</h1>
       <form onSubmit={handleFormSubmit}>

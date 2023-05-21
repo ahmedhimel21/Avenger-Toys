@@ -2,10 +2,10 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../hooks/useTitle";
 
 const Update = () => {
   const data = useLoaderData();
-  console.log(data);
   const handleUpdate = (e) =>{
     e.preventDefault()
     const form = e.target;
@@ -26,10 +26,12 @@ const Update = () => {
       if(data.modifiedCount > 0){
         console.log(data)
         toast.success('Toys updated successfully')
+        form.reset()
       }
     })
 
   }
+  useTitle('Update')
   return (
     <div className="my-6">
       <div className="max-w-md mx-auto">

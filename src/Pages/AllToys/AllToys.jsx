@@ -53,22 +53,22 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody className="text-center">
-            {filteredToys.map((toy, index) => (
+            {filteredToys?.map((toy, index) => (
               <tr key={toy._id}>
                 <td className="border-2 border-gray-300 border-l py-2 px-4">
-                  {toy.sellerName}
+                  {toy?.sellerName}
                 </td>
                 <td className="border-2 border-gray-300 border-l py-2 px-4">
-                  {toy.toyName}
+                  {toy?.toyName}
                 </td>
                 <td className="border-2 border-gray-300 border-l py-2 px-4">
-                  {toy.subCategory}
+                  {toy?.subCategory}
                 </td>
                 <td className="border-2 border-gray-300 border-l py-2 px-4">
-                  ${toy.price}
+                  ${toy?.price}
                 </td>
                 <td className="border-2 border-gray-300 border-l py-2 px-4">
-                  {toy.availableQuantity}
+                  {toy?.availableQuantity}
                 </td>
                 <td className="border-2 border-gray-300 border-l py-2 px-4">
                   <Link to={`/viewDetails/${toy?._id}`}>

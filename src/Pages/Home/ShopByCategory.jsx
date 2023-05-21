@@ -1,17 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { AuthContext } from "../../Provider/AuthProviders";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ShopByCategory() {
   const [selectedTab, setSelectedTab] = useState(0);
   const [toysCategory, setToysCategory] = useState("Marvel");
   const [toys, setToys] = useState([]);
+  const { user } = useContext(AuthContext);
 
   const handleTabSelect = (index) => {
     setSelectedTab(index);
+  };
+
+  const handleToast = () => {
+    if (!user) {
+      // alert('You have to log in first to view details')
+      toast.error("You have to log in first to view details");
+    }
   };
 
   useEffect(() => {
@@ -19,6 +30,7 @@ function ShopByCategory() {
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [toysCategory]);
+
   return (
     <div className="mx-8 my-6">
       <h1 className="text-center mb-4 text-2xl font-bold text-blue-500">
@@ -46,9 +58,9 @@ function ShopByCategory() {
 
         <TabPanel>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {toys.map((toy) => (
+            {toys?.map((toy) => (
               <div
-                key={toy._id}
+                key={toy?._id}
                 class="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               >
                 <a>
@@ -82,7 +94,10 @@ function ShopByCategory() {
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">
                       ${toy?.price}
                     </span>
-                    <Link to={`/viewDetails/${toy?._id}`}>
+                    <Link
+                      onClick={() => handleToast()}
+                      to={`/viewDetails/${toy?._id}`}
+                    >
                       <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         View Details
                       </button>
@@ -96,9 +111,9 @@ function ShopByCategory() {
 
         <TabPanel>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {toys.map((toy) => (
+            {toys?.map((toy) => (
               <div
-                key={toy._id}
+                key={toy?._id}
                 class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               >
                 <a>
@@ -132,7 +147,10 @@ function ShopByCategory() {
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">
                       ${toy?.price}
                     </span>
-                    <Link to={`/viewDetails/${toy?._id}`}>
+                    <Link
+                      onClick={() => handleToast()}
+                      to={`/viewDetails/${toy?._id}`}
+                    >
                       <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         View Details
                       </button>
@@ -146,9 +164,9 @@ function ShopByCategory() {
 
         <TabPanel>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {toys.map((toy) => (
+            {toys?.map((toy) => (
               <div
-                key={toy._id}
+                key={toy?._id}
                 class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
               >
                 <a>
@@ -182,7 +200,10 @@ function ShopByCategory() {
                     <span class="text-3xl font-bold text-gray-900 dark:text-white">
                       ${toy?.price}
                     </span>
-                    <Link to={`/viewDetails/${toy?._id}`}>
+                    <Link
+                      onClick={() => handleToast()}
+                      to={`/viewDetails/${toy?._id}`}
+                    >
                       <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                         View Details
                       </button>
@@ -193,6 +214,7 @@ function ShopByCategory() {
             ))}
           </ul>
         </TabPanel>
+        <ToastContainer></ToastContainer>
       </Tabs>
     </div>
   );

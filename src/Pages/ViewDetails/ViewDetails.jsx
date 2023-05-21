@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
+import useTitle from '../../Hooks/useTitle'
 
 const ViewDetails = () => {
   const data = useLoaderData();
@@ -16,7 +17,7 @@ const ViewDetails = () => {
     subCategory,
     toyName,
   } = data;
-  // console.log(data);
+  useTitle('ViewDetails')
   return (
     <div className="bg-white shadow-lg rounded-lg p-4 flex mx-8 my-6">
       <div className="w-1/2">

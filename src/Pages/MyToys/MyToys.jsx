@@ -5,14 +5,9 @@ import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
   const [userAddedToys, setUserAddedToys] = useState([]);
+  const [sort, setSort] = useState("");
+  console.log(sort);
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/addAToy?sellerEmail=${user?.email}&sort=1`;
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setUserAddedToys(data));
-  }, [userAddedToys]);
-
   const handleDeleteToy = (id) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this toy?"
@@ -21,7 +16,7 @@ const MyToys = () => {
       fetch(`http://localhost:5000/delete/${id}`, { method: "DELETE" })
         .then(() => {
           setUserAddedToys((prevToys) =>
-            prevToys.filter((toy) => toy.id !== id)
+            prevToys.filter((toy) => toy._id !== id)
           );
         })
         .catch((error) => {
@@ -29,6 +24,13 @@ const MyToys = () => {
         });
     }
   };
+  const url = `http://localhost:5000/addAToy?sellerEmail=${user?.email}&sort=${sort}`;
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setUserAddedToys(data));
+  }, [sort]);
+
   useTitle("MyToys");
   return (
     <div className="my-6">
@@ -46,12 +48,16 @@ const MyToys = () => {
                 <th className="border py-2 px-4">Seller Email</th>
                 <th className="border py-2 px-4">Sub-category</th>
                 <th className="border py-2 px-4 flex">
-                  <select className="bg-white border border-gray-300 rounded px-2 py-1">
+                  <select
+                    className="bg-white border border-gray-300 rounded px-2 py-1"
+                    value={sort}
+                    onChange={(e) => setSort(e.target.value)}
+                  >
                     <option value="">Price</option>
-                    <option value="ascending">
+                    <option value="false" onClick={() => setPrice(1)}>
                       Ascending Price
                     </option>
-                    <option value="descending">
+                    <option value="true" onClick={() => setPrice(-1)}>
                       Descending Price
                     </option>
                   </select>
@@ -65,23 +71,23 @@ const MyToys = () => {
               </tr>
             </thead>
             <tbody>
-              {userAddedToys.map((toy) => (
-                <tr key={toy._id}>
+              {userAddedToys?.map((toy) => (
+                <tr key={toy?._id}>
                   <td className="border py-2 px-4">
                     <img
-                      src={toy.photoURL}
-                      alt={toy.toyName}
-                      className="w-12 h-12"
+                      src={toy?.photoURL}
+                      alt={toy?.toyName}
+                      className="w-12 h-12 object-contain"
                     />
                   </td>
-                  <td className="border py-2 px-4">{toy.toyName}</td>
-                  <td className="border py-2 px-4">{toy.sellerName}</td>
-                  <td className="border py-2 px-4">{toy.sellerEmail}</td>
-                  <td className="border py-2 px-4">{toy.subCategory}</td>
-                  <td className="border py-2 px-4">${toy.price}</td>
-                  <td className="border py-2 px-4">{toy.rating}</td>
-                  <td className="border py-2 px-4">{toy.availableQuantity}</td>
-                  <td className="border py-2 px-4">{toy.details}</td>
+                  <td className="border py-2 px-4">{toy?.toyName}</td>
+                  <td className="border py-2 px-4">{toy?.sellerName}</td>
+                  <td className="border py-2 px-4">{toy?.sellerEmail}</td>
+                  <td className="border py-2 px-4">{toy?.subCategory}</td>
+                  <td className="border py-2 px-4">${toy?.price}</td>
+                  <td className="border py-2 px-4">{toy?.rating}</td>
+                  <td className="border py-2 px-4">{toy?.availableQuantity}</td>
+                  <td className="border py-2 px-4">{toy?.details}</td>
                   <td className="border py-2 px-4 flex">
                     <Link to={`/update/${toy?._id}`}>
                       <button className="bg-blue-500 text-white font-bold py-1 px-2 rounded mr-2">
@@ -90,7 +96,7 @@ const MyToys = () => {
                     </Link>
                     <button
                       className="bg-red-500 text-white font-bold py-1 px-2 rounded"
-                      onClick={() => handleDeleteToy(toy._id)}
+                      onClick={() => handleDeleteToy(toy?._id)}
                     >
                       Delete
                     </button>
