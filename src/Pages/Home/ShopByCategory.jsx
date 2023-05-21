@@ -26,7 +26,7 @@ function ShopByCategory() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${toysCategory}`)
+    fetch(`https://avenger-toys-server.vercel.app/toys/${toysCategory}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [toysCategory]);

@@ -13,7 +13,7 @@ const MyToys = () => {
       "Are you sure you want to delete this toy?"
     );
     if (confirmDelete) {
-      fetch(`http://localhost:5000/delete/${id}`, { method: "DELETE" })
+      fetch(`https://avenger-toys-server.vercel.app/delete/${id}`, { method: "DELETE" })
         .then(() => {
           setUserAddedToys((prevToys) =>
             prevToys.filter((toy) => toy._id !== id)
@@ -24,7 +24,7 @@ const MyToys = () => {
         });
     }
   };
-  const url = `http://localhost:5000/addAToy?sellerEmail=${user?.email}&sort=${sort}`;
+  const url = `https://avenger-toys-server.vercel.app/addAToy?sellerEmail=${user?.email}&sort=${sort}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
@@ -54,10 +54,10 @@ const MyToys = () => {
                     onChange={(e) => setSort(e.target.value)}
                   >
                     <option value="">Price</option>
-                    <option value="false" onClick={() => setPrice(1)}>
+                    <option value="true">
                       Ascending Price
                     </option>
-                    <option value="true" onClick={() => setPrice(-1)}>
+                    <option value="false">
                       Descending Price
                     </option>
                   </select>

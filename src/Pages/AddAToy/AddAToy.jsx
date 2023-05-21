@@ -33,7 +33,7 @@ const AddAToy = () => {
       details,
     };
     console.log("Form submitted!", formData);
-    fetch('http://localhost:5000/addAToy',{
+    fetch('https://avenger-toys-server.vercel.app/addAToy',{
       method: 'POST',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify(formData)
